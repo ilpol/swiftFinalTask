@@ -142,13 +142,13 @@ class RecepieDetailsViewController: UIViewController, UIScrollViewDelegate, UICo
         NSLayoutConstraint.activate([
             ingridientsTitleLabel.widthAnchor.constraint(equalTo: viewWrapper.widthAnchor, multiplier : 1),
             ingridientsTitleLabel.heightAnchor.constraint(equalToConstant: 50),
-            ingridientsTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,constant: 20),
+            ingridientsTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
        ])
         
         NSLayoutConstraint.activate([
             ingridientsCollectionView.widthAnchor.constraint(equalTo: viewWrapper.widthAnchor, multiplier : 1),
             ingridientsCollectionView.heightAnchor.constraint(equalToConstant: 140),
-            ingridientsCollectionView.topAnchor.constraint(equalTo: ingridientsTitleLabel.bottomAnchor,constant: 10),
+            ingridientsCollectionView.topAnchor.constraint(equalTo: ingridientsTitleLabel.bottomAnchor,constant: 0),
        ])
         
         NSLayoutConstraint.activate([
@@ -160,7 +160,7 @@ class RecepieDetailsViewController: UIViewController, UIScrollViewDelegate, UICo
         NSLayoutConstraint.activate([
             descriptionLabel.widthAnchor.constraint(equalTo: viewWrapper.widthAnchor, multiplier : 1),
             descriptionLabel.heightAnchor.constraint(equalToConstant: 500),
-            descriptionLabel.topAnchor.constraint(equalTo: recepieTitleLabel.bottomAnchor,constant: 10),
+            descriptionLabel.topAnchor.constraint(equalTo: recepieTitleLabel.bottomAnchor,constant: -10),
        ])
         
     }

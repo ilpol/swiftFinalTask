@@ -94,7 +94,7 @@ class StopWatchItemCell: UICollectionViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 15))
         
         
-        titleLabel.frame = CGRect(x: 25,
+        titleLabel.frame = CGRect(x: 23,
                                     y: 0,
                                     width: contentView.frame.width,
                                     height: contentView.frame.size.height/2
