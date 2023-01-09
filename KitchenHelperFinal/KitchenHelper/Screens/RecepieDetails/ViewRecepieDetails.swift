@@ -261,22 +261,6 @@ class RecepieDetailsViewController: UIViewController, UIScrollViewDelegate, UICo
         isLoading = false
     }
     
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return models.count // recepies.count
-//    }
-//    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = UIViewController()
-//        vc.view.backgroundColor = .red
-//
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 250.0;
-//    }
-    
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
