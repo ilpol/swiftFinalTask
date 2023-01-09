@@ -21,4 +21,9 @@ class Heplers: HeplersProtocol {
 
         return context
     }
+    
+    func getDateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        return formatter
+    }
 }

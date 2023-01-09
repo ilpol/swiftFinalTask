@@ -31,7 +31,7 @@ class FridgeItemViewController: UIViewController, AnyViewFridgeItem {
     func update(fridgeItem: FridgeItem) {
         nameLabel.text = fridgeItem.name
         let date = fridgeItem.overdueDate ?? Date()
-        let formatter = DateFormatter()
+        let formatter = Heplers.shared.getDateFormatter()
         formatter.dateFormat = "dd-MMM-yyyy hh:mm"
         let stringDate = formatter.string(from: date)
         dateLabel.text = stringDate

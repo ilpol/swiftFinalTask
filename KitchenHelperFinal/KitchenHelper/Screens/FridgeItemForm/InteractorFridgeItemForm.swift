@@ -18,7 +18,7 @@ protocol AnyInteractorFridgeItemForm {
 class FridgeItemFormInteractor: AnyInteractorFridgeItemForm {
     
     func formattedDate(date: Date) -> String {
-        let formatter = DateFormatter()
+        let formatter = Heplers.shared.getDateFormatter()
         formatter.dateFormat = "d MMM y HH:mm"
         return formatter.string(from: date)
     }

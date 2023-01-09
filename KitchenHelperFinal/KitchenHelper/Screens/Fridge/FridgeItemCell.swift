@@ -56,7 +56,7 @@ class FridgeItemCell: UITableViewCell {
 
     func setContent(name: String, description: String, itemImage: UIImage, date: Date) {
         titleLabel.text = name
-        let formatter = DateFormatter()
+        let formatter = Heplers.shared.getDateFormatter()
         formatter.dateFormat = "dd-MMM-yyyy hh:mm"
 
         let stringDate = formatter.string(from: date)
