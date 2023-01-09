@@ -100,14 +100,6 @@ class NetworService: NetworkServiceProtocol {
     func getItemByUrlCoreData(imageUrl: String) -> DownloadedImage {
         let context = Heplers.shared.getContext()
         do {
-//            let imagesCoreData = getAllImageItemsCoreData()
-//            for imageCoreData in imagesCoreData {
-//                let str = (imageCoreData.imageUrlStr ?? "") as String
-//
-//                if (str == imageUrl) {
-//                    return imageCoreData
-//                }
-//            }
             
             let fetchRequest : NSFetchRequest<DownloadedImage> = DownloadedImage.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "imageUrlStr %@", imageUrl)
