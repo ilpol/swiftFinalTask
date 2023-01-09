@@ -37,10 +37,7 @@ class RecepiesCategoriesViewController: UIViewController, UITableViewDelegate, U
 
     @objc func refresh(_ sender: AnyObject) {
         isLoading = true
-        let seconds = 0.1
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.presenter?.onLoadView()
-        }
+        self.presenter?.onLoadView()
         refreshControl.endRefreshing()
     }
     
@@ -145,10 +142,7 @@ class RecepiesCategoriesViewController: UIViewController, UITableViewDelegate, U
     
     @objc func clearSearch() {
         isLoading = true
-        let seconds = 0.1
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.presenter?.onLoadView()
-        }
+        self.presenter?.onLoadView()
     }
     
     override func viewDidLayoutSubviews() {
