@@ -264,7 +264,9 @@ class RecepieDetailsViewController: UIViewController, UIScrollViewDelegate, UICo
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
-        viewWrapper.contentSize = CGSize(width: 0, height: 2000)
+        let commonHeight  = recepieImage.bounds.height + titleLabel.bounds.height + ingridientsTitleLabel.bounds.height + ingridientsCollectionView.bounds.height + recepieTitleLabel.bounds.height + descriptionLabel.bounds.height + 200;
+        let heightRes = max(commonHeight, 1100)
+        viewWrapper.contentSize = CGSize(width: 0, height: heightRes)
     }
 }
 
