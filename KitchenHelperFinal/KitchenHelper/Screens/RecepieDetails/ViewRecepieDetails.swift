@@ -38,7 +38,9 @@ class RecepieDetailsViewController: UIViewController, UIScrollViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecepieDetailsIngridientCell", for: indexPath) as! RecepieDetailsIngridientCell
-        cell.setContent(name: ingridientsArr[indexPath.row])
+        if (ingridientsArr.count > 0) {
+            cell.setContent(name: ingridientsArr[indexPath.row])
+        }
         return cell
     }
     

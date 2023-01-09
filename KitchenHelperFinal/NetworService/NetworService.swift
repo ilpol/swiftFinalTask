@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 protocol NetworkServiceProtocol {
     
@@ -99,14 +100,29 @@ class NetworService: NetworkServiceProtocol {
     func getItemByUrlCoreData(imageUrl: String) -> DownloadedImage {
         let context = Heplers.shared.getContext()
         do {
-          let imagesCoreData = getAllImageItemsCoreData()
-            for imageCoreData in imagesCoreData {
-                let str = (imageCoreData.imageUrlStr ?? "") as String
+//            let imagesCoreData = getAllImageItemsCoreData()
+//            for imageCoreData in imagesCoreData {
+//                let str = (imageCoreData.imageUrlStr ?? "") as String
+//
+//                if (str == imageUrl) {
+//                    return imageCoreData
+//                }
+//            }
+            
+            let fetchRequest : NSFetchRequest<DownloadedImage> = DownloadedImage.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "imageUrlStr %@", imageUrl)
 
-                if (str == imageUrl) {
-                    return imageCoreData
+            do {
+                let fetchedResults = try context.fetch(fetchRequest)
+                if (fetchedResults.count > 0) {
+                    return fetchedResults[0]
                 }
             }
+            catch {
+                print("error getting image from CoreData")
+            }
+            
+            
             let newItem = DownloadedImage(context: context)
             newItem.imageUrlStr = imageUrl
             newItem.imageData = Data()
