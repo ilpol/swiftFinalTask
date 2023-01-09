@@ -11,13 +11,13 @@ import Vision
 
 protocol AnyViewFridgeItemForm {
     var presenter: AnyPresenterFridgeItemForm? {get set}
-    func present(ac: UIAlertController, animated: Bool)
+    func presentVC(ac: UIAlertController, animated: Bool)
 }
 
 class FridgeItemFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AnyViewFridgeItemForm {
     
-    func present(ac: UIAlertController, animated: Bool) {
-        self.present(ac: ac, animated: animated)
+    func presentVC(ac: UIAlertController, animated: Bool) {
+        present(ac, animated: animated)
     }
     
     var presenter: AnyPresenterFridgeItemForm?
@@ -174,9 +174,11 @@ class FridgeItemFormViewController: UIViewController, UIImagePickerControllerDel
         overdueNotificationWrapper.addSubview(overdueNotificationSwitch)
         overdueNotificationWrapper.addSubview(overdueNotificationLabel)
         
-        viewWrapper.addSubview(descriptionFromCameraWrapper)
-        descriptionFromCameraWrapper.addSubview(descriptionFromCameraSwitch)
-        descriptionFromCameraWrapper.addSubview(descriptionFromCameraLabel)
+        if #available(iOS 13.0, *) {
+          viewWrapper.addSubview(descriptionFromCameraWrapper)
+          descriptionFromCameraWrapper.addSubview(descriptionFromCameraSwitch)
+          descriptionFromCameraWrapper.addSubview(descriptionFromCameraLabel)
+        }
         
         viewWrapper.addSubview(cameraButton)
         viewWrapper.addSubview(addItemButton)
@@ -229,23 +231,26 @@ class FridgeItemFormViewController: UIViewController, UIImagePickerControllerDel
             overdueNotificationSwitch.trailingAnchor.constraint(equalTo: overdueNotificationWrapper.trailingAnchor, constant: overdueSwithRightMargin),
        ])
         
-        NSLayoutConstraint.activate([
-            descriptionFromCameraWrapper.heightAnchor.constraint(equalToConstant: fieldsHeight),
-            descriptionFromCameraWrapper.widthAnchor.constraint(equalTo: viewWrapper.widthAnchor, multiplier : 1),
-            descriptionFromCameraWrapper.centerXAnchor.constraint(equalTo: viewWrapper.centerXAnchor ),
-            descriptionFromCameraWrapper.topAnchor.constraint(equalTo: overdueNotificationWrapper.bottomAnchor, constant: fieldsTopMargin),
-       ])
+        if #available(iOS 13.0, *) {
+            NSLayoutConstraint.activate([
+                descriptionFromCameraWrapper.heightAnchor.constraint(equalToConstant: fieldsHeight),
+                descriptionFromCameraWrapper.widthAnchor.constraint(equalTo: viewWrapper.widthAnchor, multiplier : 1),
+                descriptionFromCameraWrapper.centerXAnchor.constraint(equalTo: viewWrapper.centerXAnchor ),
+                descriptionFromCameraWrapper.topAnchor.constraint(equalTo: overdueNotificationWrapper.bottomAnchor, constant: fieldsTopMargin),
+           ])
        
         
-        NSLayoutConstraint.activate([
-            descriptionFromCameraLabel.topAnchor.constraint(equalTo: descriptionFromCameraWrapper.topAnchor, constant: fieldsHeight/2 ),
-            descriptionFromCameraLabel.leadingAnchor.constraint(equalTo: descriptionFromCameraWrapper.leadingAnchor),
-       ])
-        
-        NSLayoutConstraint.activate([
-            descriptionFromCameraSwitch.topAnchor.constraint(equalTo: descriptionFromCameraWrapper.topAnchor, constant: fieldsHeight/2 ),
-            descriptionFromCameraSwitch.trailingAnchor.constraint(equalTo: descriptionFromCameraWrapper.trailingAnchor, constant: overdueSwithRightMargin),
-       ])
+            NSLayoutConstraint.activate([
+                descriptionFromCameraLabel.topAnchor.constraint(equalTo: descriptionFromCameraWrapper.topAnchor, constant: fieldsHeight/2 ),
+                descriptionFromCameraLabel.leadingAnchor.constraint(equalTo: descriptionFromCameraWrapper.leadingAnchor),
+           ])
+            
+            
+            NSLayoutConstraint.activate([
+                descriptionFromCameraSwitch.topAnchor.constraint(equalTo: descriptionFromCameraWrapper.topAnchor, constant: fieldsHeight/2 ),
+                descriptionFromCameraSwitch.trailingAnchor.constraint(equalTo: descriptionFromCameraWrapper.trailingAnchor, constant: overdueSwithRightMargin),
+           ])
+        }
         
         
         NSLayoutConstraint.activate([

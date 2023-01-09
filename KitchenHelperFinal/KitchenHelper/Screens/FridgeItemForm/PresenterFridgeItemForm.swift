@@ -23,7 +23,7 @@ class FridgeItemFormPresenter: AnyPresenterFridgeItemForm {
     var view: AnyViewFridgeItemForm?
     
     func present(ac: UIAlertController, animated: Bool) {
-        view?.present(ac: ac, animated: animated)
+        view?.presentVC(ac: ac, animated: animated)
     }
     
     func createItem(name: String, itemDescription: String, id: String, itemImage: UIImage, overdueDate: Date, isOverdueNotificationSwitch overdueNotificationSwitch: Bool) {
