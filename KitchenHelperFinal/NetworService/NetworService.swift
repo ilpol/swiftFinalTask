@@ -21,18 +21,20 @@ class NetworService: NetworkServiceProtocol {
 
     static let shared = NetworService()
     
+    let baseUrl = "https://www.themealdb.com/api/json/v1/1"
+    
     func fetchCategories(completion: @escaping (Result<CategoriesResponse, Error>) -> () ) {
-        let urlString = "https://www.themealdb.com/api/json/v1/1/categories.php"
+        let urlString = "\(baseUrl)/categories.php"
         fetchData(urlString: urlString, isDecode: true, completion: completion)
     }
     
     func fetchCategoryContent(for category: String, completion: @escaping (Result<CategoryContentResponse, Error>) -> () ) {
-        let urlString = "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(category)"
+        let urlString = "\(baseUrl)/filter.php?c=\(category)"
         fetchData(urlString: urlString, isDecode: true, completion: completion)
     }
     
     func fetchRecepieDetails(for id: String, completion: @escaping (Result<RecepieDetailsResponse, Error>) -> () ) {
-        let urlString = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(id)"
+        let urlString = "\(baseUrl)/lookup.php?i=\(id)"
         fetchData(urlString: urlString, isDecode: true, completion: completion)
     }
 
