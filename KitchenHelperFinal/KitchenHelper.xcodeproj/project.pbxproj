@@ -66,6 +66,7 @@
 		BBA95443293123C80053AA8A /* PresenterRecepiesCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA95442293123C80053AA8A /* PresenterRecepiesCategories.swift */; };
 		BBA95445293123D30053AA8A /* EntityRecepiesCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA95444293123D30053AA8A /* EntityRecepiesCategories.swift */; };
 		BBA95447293123DF0053AA8A /* RouterRecepiesCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA95446293123DF0053AA8A /* RouterRecepiesCategories.swift */; };
+		BBB33788296C730A00DEBFAD /* Heplers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB33787296C730A00DEBFAD /* Heplers.swift */; };
 		BBBD7A91296AC42D00609EEF /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD7A90296AC42D00609EEF /* CommonExtensions.swift */; };
 		BBC648CB295E44FC00A39B0D /* EntityRecepiesCategoriesContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC648CA295E44FC00A39B0D /* EntityRecepiesCategoriesContent.swift */; };
 		BBC648CD295E46B300A39B0D /* ViewRecepiesCategoriesContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC648CC295E46B300A39B0D /* ViewRecepiesCategoriesContent.swift */; };
@@ -160,6 +161,7 @@
 		BBA95442293123C80053AA8A /* PresenterRecepiesCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterRecepiesCategories.swift; sourceTree = "<group>"; };
 		BBA95444293123D30053AA8A /* EntityRecepiesCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRecepiesCategories.swift; sourceTree = "<group>"; };
 		BBA95446293123DF0053AA8A /* RouterRecepiesCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterRecepiesCategories.swift; sourceTree = "<group>"; };
+		BBB33787296C730A00DEBFAD /* Heplers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heplers.swift; sourceTree = "<group>"; };
 		BBBD7A90296AC42D00609EEF /* CommonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
 		BBC648CA295E44FC00A39B0D /* EntityRecepiesCategoriesContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRecepiesCategoriesContent.swift; sourceTree = "<group>"; };
 		BBC648CC295E46B300A39B0D /* ViewRecepiesCategoriesContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewRecepiesCategoriesContent.swift; path = KitchenHelper/Screens/RecepiesCategoriesContent/ViewRecepiesCategoriesContent.swift; sourceTree = SOURCE_ROOT; };
@@ -375,6 +377,14 @@
 			path = RecepiesCategories;
 			sourceTree = "<group>";
 		};
+		BBB33786296C72DF00DEBFAD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BBB33787296C730A00DEBFAD /* Heplers.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BBBD7A8F296AC41900609EEF /* CommonExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +447,7 @@
 		BBF8AC3C28D675CF00847976 /* KitchenHelper */ = {
 			isa = PBXGroup;
 			children = (
+				BBB33786296C72DF00DEBFAD /* Utils */,
 				BBBD7A8F296AC41900609EEF /* CommonExtensions */,
 				BB279FE5293240D000733452 /* Navigation */,
 				BB279FE6293240F700733452 /* CoreDataClasses */,
@@ -669,6 +680,7 @@
 				BBF8AC4028D675CF00847976 /* SceneDelegate.swift in Sources */,
 				BB488CBE29677883009D90C7 /* TimerItemCell.swift in Sources */,
 				BBA544CA296610030075DE0E /* RecepieDetailsIngridientCell.swift in Sources */,
+				BBB33788296C730A00DEBFAD /* Heplers.swift in Sources */,
 				BBC648CB295E44FC00A39B0D /* EntityRecepiesCategoriesContent.swift in Sources */,
 				BB449A362933ED800044187C /* CategoryItem+CoreDataProperties.swift in Sources */,
 				BB5DD4E72969F435002F60B6 /* RecepieDetailsContent+CoreDataClass.swift in Sources */,

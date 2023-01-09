@@ -13,7 +13,7 @@ class CategoryItemCell: UITableViewCell {
     var wrapView = UIView()
     var nameWidth: CGFloat = 0
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = Heplers.shared.getContext()
     
     private let myImage: UIImageView = { () -> UIImageView in
         let image = UIImageView()

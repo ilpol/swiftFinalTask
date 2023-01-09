@@ -19,8 +19,4 @@ class StovePresenter: AnyPresenterStove {
     var interactor: AnyInteractorStove?
 
     var view: AnyViewStove?
-    
-    func addNewItem() {
-        router?.toItemForm()
-    }
 }

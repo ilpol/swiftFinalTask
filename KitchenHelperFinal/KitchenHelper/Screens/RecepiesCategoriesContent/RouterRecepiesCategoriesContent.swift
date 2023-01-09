@@ -17,12 +17,9 @@ protocol AnyRouterRecepiesCategoriesContent {
 
 class RouterRecepiesCategoriesContent: AnyRouterRecepiesCategoriesContent {
     
-    
-    
+
     var entry: EntryPointRecepiesCategoriesContent?
     
-    func toItemForm() {
-    }
     
     func toRecepiesDetailsScreen(id: String) {
         ConfigureNavigation.shared.openRecepiesDetails(from: RouterRecepiesCategories.recepiesCategoriesViewController, id: id)

@@ -23,32 +23,22 @@ class RecepieDetailsViewController: UIViewController, UIScrollViewDelegate, UICo
         return 5
     }
     
-    func getIngridientNameByPosition(pos: Int) -> String {
-        if (models.count == 0) {
-            return ""
-        }
-        if (pos == 0) {
-            return models[0].ingredient1 ?? ""
-        } else if (pos == 1) {
-            return models[0].ingredient2 ?? ""
-        } else if (pos == 2) {
-            return models[0].ingredient3 ?? ""
-        } else if (pos == 3) {
-            return models[0].ingredient4 ?? ""
-        } else if (pos == 4) {
-            return models[0].ingredient5 ?? ""
-        } else if (pos == 5) {
-            return models[0].ingredient6 ?? ""
-        } else if (pos == 6) {
-            return models[0].ingredient7 ?? ""
-        }
-
-        return models[0].ingredient1 ?? ""
+    func getIngridientsArr(model: RecepieDetails) -> [String] {
+        let ingridients = [
+            model.ingredient1 ?? "",
+            model.ingredient2 ?? "",
+            model.ingredient3 ?? "",
+            model.ingredient4 ?? "",
+            model.ingredient5 ?? "",
+            model.ingredient6 ?? "",
+            model.ingredient7 ?? "",
+        ]
+        return ingridients
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecepieDetailsIngridientCell", for: indexPath) as! RecepieDetailsIngridientCell
-        cell.setContent(name: getIngridientNameByPosition(pos: indexPath.row))
+        cell.setContent(name: ingridientsArr[indexPath.row])
         return cell
     }
     
@@ -98,6 +88,7 @@ class RecepieDetailsViewController: UIViewController, UIScrollViewDelegate, UICo
     }
     var presenter: AnyPresenterRecepieDetails?
     var models = [RecepieDetails]()
+    var ingridientsArr = [String]()
     var isLoading = false {
         didSet {
             if (isLoading) {
@@ -262,25 +253,26 @@ class RecepieDetailsViewController: UIViewController, UIScrollViewDelegate, UICo
         titleLabel.numberOfLines = 2
 
         models = recepieDetails
+        ingridientsArr = getIngridientsArr(model: models[0])
         recepieImage.downloadFrom(from: recepieDetails[0].imageUrl)
         self.ingridientsCollectionView.reloadData()
         isLoading = false
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count // recepies.count
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .red
-
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250.0;
-    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return models.count // recepies.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let vc = UIViewController()
+//        vc.view.backgroundColor = .red
+//
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
+//    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 250.0;
+//    }
     
     
     override func viewDidLayoutSubviews() {

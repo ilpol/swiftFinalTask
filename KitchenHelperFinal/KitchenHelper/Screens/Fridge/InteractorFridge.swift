@@ -20,7 +20,7 @@ class FridgeInteractor: AnyInteractorFridge {
     let notificationCenter = UNUserNotificationCenter.current()
     
     var presenter: AnyPresenterFridge?
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = Heplers.shared.getContext()
     var fridgeItems = [FridgeItem]()
 
     

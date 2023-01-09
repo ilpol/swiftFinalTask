@@ -20,7 +20,7 @@ class FridgeViewController: UIViewController, UINavigationControllerDelegate, UI
     
     var presenter: AnyPresenterFridge?
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = Heplers.shared.getContext()
     
     
     let tableView = UITableView()

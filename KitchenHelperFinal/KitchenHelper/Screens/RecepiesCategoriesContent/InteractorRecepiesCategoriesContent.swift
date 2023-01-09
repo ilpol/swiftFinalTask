@@ -18,7 +18,7 @@ class InteractorRecepiesCategoriesContent: AnyInteractorRecepiesCategoriesConten
     var savedCategories = [CategoryItemContent]()
     
     var presenter: AnyPresenterRecepiesCategoriesContent?
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = Heplers.shared.getContext()
     private var fridgeItems = [FridgeItem]()
     var networkService: NetworkServiceProtocol
 

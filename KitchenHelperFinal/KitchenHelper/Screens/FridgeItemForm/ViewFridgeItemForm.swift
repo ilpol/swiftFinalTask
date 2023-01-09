@@ -22,7 +22,7 @@ class FridgeItemFormViewController: UIViewController, UIImagePickerControllerDel
     
     var presenter: AnyPresenterFridgeItemForm?
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = Heplers.shared.getContext()
     
     let notificationCenter = UNUserNotificationCenter.current()
     

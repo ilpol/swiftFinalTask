@@ -12,15 +12,12 @@ typealias EntryPointStove = AnyViewFridge & UIViewController
 protocol AnyRouterStove {
     static func start(view: StoveViewController) -> Void
     var entry: EntryPointStove? {get}
-    func toItemForm()
 }
 
 class StoveRouter: AnyRouterStove {
     
     var entry: EntryPointFridge?
-    
-    func toItemForm() {
-    }
+
 
     static func start(view: StoveViewController)-> Void {
         let router = StoveRouter()

@@ -41,7 +41,7 @@ extension UIImageView {
     }
     
     func updateImageCoreData(imageUrl: String, imageData: Data) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let context = Heplers.shared.getContext()
         let imageCoreData = getItemByUrlCoreData(imageUrl: imageUrl)
         imageCoreData.imageData = imageData
         do {
@@ -53,7 +53,7 @@ extension UIImageView {
     }
     
     func getAllImageItemsCoreData() -> [DownloadedImage] {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let context = Heplers.shared.getContext()
         do {
           let savedImages = try context.fetch(DownloadedImage.fetchRequest())
             return savedImages
@@ -65,7 +65,7 @@ extension UIImageView {
     }
     
     func getItemByUrlCoreData(imageUrl: String) -> DownloadedImage {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let context = Heplers.shared.getContext()
         do {
           let imagesCoreData = getAllImageItemsCoreData()
             for imageCoreData in imagesCoreData {

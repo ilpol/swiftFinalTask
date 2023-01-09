@@ -19,9 +19,7 @@ class RouterRecepieDetails: AnyRouterRecepieDetails {
     
     
     var entry: EntryPointRecepieDetails?
-    
-    func toItemForm() {
-    }
+
 
     static func start(from: UIViewController, id: String)-> Void {
         let router = RouterRecepieDetails()
