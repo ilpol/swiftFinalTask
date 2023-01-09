@@ -76,7 +76,7 @@ class RecepiesCategoriesViewController: UIViewController, UITableViewDelegate, U
         
         let searchButton   = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchItems))
 
-        navigationItem.rightBarButtonItems = [/*clearButton, */searchButton]
+        navigationItem.rightBarButtonItems = [searchButton]
         
         RouterRecepiesCategories.start(view: self)
         isLoading = true
