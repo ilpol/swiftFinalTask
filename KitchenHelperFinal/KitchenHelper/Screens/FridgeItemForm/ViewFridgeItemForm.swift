@@ -103,7 +103,11 @@ class FridgeItemFormViewController: UIViewController, UIImagePickerControllerDel
             datePickerHeight = 40
         }
         
-        datePickerField.preferredDatePickerStyle = .compact
+        if #available(iOS 13.4, *) {
+            datePickerField.preferredDatePickerStyle = .compact
+        } else {
+            // Fallback on earlier versions
+        }
         
         view.backgroundColor = .white
         
@@ -299,19 +303,21 @@ class FridgeItemFormViewController: UIViewController, UIImagePickerControllerDel
 
         let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
         
-        let request = VNRecognizeTextRequest { request, error in
-            guard let observations = request.results as?      [VNRecognizedTextObservation],
-             error == nil else {return}
-             let textFromPhoto = observations.compactMap({
-             $0.topCandidates(1).first?.string
-             }).joined(separator: ", ")
-            self.descriptionTextField.text = textFromPhoto
-        }
-        do {
-            try handler.perform([request])
-        }
-        catch {
-            print("error recognizing image", error)
+        if #available(iOS 13.0, *) {
+            let request = VNRecognizeTextRequest { request, error in
+                guard let observations = request.results as?      [VNRecognizedTextObservation],
+                 error == nil else {return}
+                 let textFromPhoto = observations.compactMap({
+                 $0.topCandidates(1).first?.string
+                 }).joined(separator: ", ")
+                self.descriptionTextField.text = textFromPhoto
+            }
+            do {
+                try handler.perform([request])
+            }
+            catch {
+                print("error recognizing image", error)
+            }
         }
     }
 }

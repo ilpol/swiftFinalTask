@@ -13,16 +13,24 @@ class StartTabBarVC: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .white
         UITabBar.appearance().barTintColor = .white
-        tabBar.tintColor = .label
+        if #available(iOS 13.0, *) {
+            tabBar.tintColor = .label
+        } else {
+            // Fallback on earlier versions
+        }
         setupVCs()
     }
     
     func setupVCs() {
-        viewControllers = [
-            createNavController(for: RecepiesCategoriesViewController(), title: NSLocalizedString("Рецепты", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
-            createNavController(for: FridgeViewController(), title: NSLocalizedString("Холодильник", comment: ""), image: UIImage(systemName: "house")!),
-            createNavController(for: StoveViewController(), title: NSLocalizedString("Плита", comment: ""), image: UIImage(systemName: "person")!),
-        ]
+        if #available(iOS 13.0, *) {
+            viewControllers = [
+                createNavController(for: RecepiesCategoriesViewController(), title: NSLocalizedString("Рецепты", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
+                createNavController(for: FridgeViewController(), title: NSLocalizedString("Холодильник", comment: ""), image: UIImage(systemName: "house")!),
+                createNavController(for: StoveViewController(), title: NSLocalizedString("Плита", comment: ""), image: UIImage(systemName: "person")!),
+            ]
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     fileprivate func createNavController(for rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
