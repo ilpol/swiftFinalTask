@@ -30,17 +30,4 @@ class FridgeItemInteractor: AnyInteractorFridgeItem {
             }
         }
     }
-
-    
-    func deleteItem(item: FridgeItem) {
-        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [item.id ?? ""])
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [item.id ?? ""])
-        
-        context.delete(item)
-        do {
-            try context.save()
-        } catch {
-            print("error deleting item CoreData")
-        }
-    }
 }
