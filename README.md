@@ -1,6 +1,7 @@
 # KithenHelper
 
 Приложение помошник на кухне. Позволяет смотреть рецепты, класть продукты в холодильник и следить за временем работы плиты, духовки и микроволновки)
+Используемые технологии: UIKit, VIPER, CoreData, UserDefaults, URLSession, Vision, AVFoundation
 
 <img src="https://github.com/ilpol/swiftFinalTask/blob/main/appImage1.png" width="300">
 <img src="https://github.com/ilpol/swiftFinalTask/blob/main/appImage2.png" width="300">
