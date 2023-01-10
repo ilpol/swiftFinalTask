@@ -69,7 +69,7 @@ class CategoryItemCell: UITableViewCell {
                                     height: 40
             )
         
-        imageIcon.frame = CGRect(x: contentView.frame.width / 2 - (150 / 2),
+        imageIcon.frame = CGRect(x: contentView.frame.width / 2 - (125 / 2),
                                     y: 50,
                                         width: 140,
                                     height: 140
